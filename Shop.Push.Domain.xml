@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Shop.Push.Domain</name>
+    </assembly>
+    <members>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_All_All_Alert(System.String)">
+            <summary>
+            推送消息到所有平台
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_all_alias_alert(System.String,System.String[])">
+            <summary>
+            根据传入的所有别名推送消息
+            </summary>
+            <param name="msg"></param>
+            <param name="alias"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_all_tags_alert(System.String,System.String[])">
+            <summary>
+            根据传入的所有标签推送消息
+            </summary>
+            <param name="msg"></param>
+            <param name="tags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_all_alias_alert(System.String,System.String,System.String[],System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            根据传入的所有别名推送消息
+            </summary>
+            <param name="msg"></param>
+            <param name="regids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_all_regids_alert(System.String,System.String,System.String[],System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            根据传入的所有设备id推送消息
+            </summary>
+            <param name="msg"></param>
+            <param name="regids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_All_All_Message(System.String,System.String,System.Int16,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+             推送自定义消息到指定平台
+            </summary>
+            <param name="title"></param>
+            <param name="msg"></param>
+            <param name="platformType">0：所有 1：安卓 2：ios</param>
+            <param name="extras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_all_regids_message(System.String,System.String,System.String[])">
+            <summary>
+            根据传入的所有设备id推送自定义消息
+            </summary>
+            <param name="msg"></param>
+            <param name="regids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_all_alias_message(System.String,System.String,System.String[],System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+             根据传入的所有别名推送自定义消息
+            </summary>
+            <param name="title"></param>
+            <param name="msg"></param>
+            <param name="alias"></param>
+            <param name="extras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_all_regids_message(System.String,System.String,System.String[],System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+             根据传入的所有设备id推送自定义消息
+            </summary>
+            <param name="title"></param>
+            <param name="msg"></param>
+            <param name="alias"></param>
+            <param name="extras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushSendSmsMessage(System.String,System.String)">
+            <summary>
+            推送SMS消息
+            </summary>
+            <param name="msg"></param>
+            <param name="smsBody"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_Android_Tag_AlertWithTitle(System.String,System.String,System.String[])">
+            <summary>
+            根据传入的所有tag推送消息到Android
+            </summary>
+            <param name="title"></param>
+            <param name="msg"></param>
+            <param name="tags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_android_and_ios(System.String,System.String,System.String[],System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            根据所有传入的tag推送消息
+            </summary>
+            <param name="msg"></param>
+            <param name="android_title"></param>
+            <param name="tags"></param>
+            <param name="extras"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Shop.Push.Domain.Models.PushParams">
+             <summary>
+             POST https://api.jpush.cn/v3/push 向某单个设备或者某设备列表推送一条通知、或者消息。
+            推送的内容只能是 JSON 表示的一个推送对象
+             </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.PushParams.platform">
+            <summary>
+            必填 推送平台 "all"、"android"、"ios"
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.PushParams.audience">
+            <summary>
+            必填 推送目标 别名、标签、注册ID、分群、广播，如果要发广播（全部设备），则直接填写 “all”。
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.PushParams.notification">
+             <summary>
+             “通知”对象，是一条推送的实体内容对象之一（另一个是“消息”），是会作为“通知”推送到客户端的。
+            其下属属性包含 4 种，3 个平台属性，以及一个 "alert" 属性。
+             </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.PushParams.message">
+             <summary>
+             应用内消息。或者称作：自定义消息，透传消息。
+            此部分内容不会展示到通知栏上，JPush SDK 收到消息内容后透传给 App。需要 App 自行处理。
+            iOS 平台上，此部分内容在推送应用内消息通道（非APNS）获取。Windows Phone 暂时不支持应用内消息。
+             </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.PushParams.sms_message">
+            <summary>
+             短信补充 用于设置短信推送内容以及短信发送的延迟时间。手机接收号码,开发者需要先把用户的手机号码与设备的registration id匹配。
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.PushParams.options">
+            <summary>
+            可选参数
+            </summary>
+        </member>
+        <member name="T:Shop.Push.Domain.Models.ValifyApi">
+            <summary>
+            推送校验 API 
+            POST https://api.jpush.cn/v3/push/validate
+            该 API 只用于验证推送调用是否能够成功，与推送 API 的区别在于：不向用户发送任何消息。 其他字段说明：同推送 API。
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Shop.Push.Domain.Models.Audience.tag" -->
+        <member name="P:Shop.Push.Domain.Models.Audience.tag_and">
+            <summary>
+            注册与 tag 区分。一次推送最多 20 个。 多个标签之间是 AND 关系
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Shop.Push.Domain.Models.Audience.alias" -->
+        <member name="P:Shop.Push.Domain.Models.Audience.registration_id">
+            <summary>
+            设备标识。一次推送最多 1000 个。 多个注册ID之间是 OR 关系
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.Notify.alert">
+            <summary>
+            必填 通知内容
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.Message.msg_content">
+            <summary>
+            必填 消息内容本身
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.Message.title">
+            <summary>
+            消息标题
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.Message.content_type">
+            <summary>
+            消息内容类型
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.Message.extras">
+            <summary>
+            JSON 格式的可选参数
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.SMSMessage.content">
+            <summary>
+            必填 不能超过480个字符。"你好,JPush"为8个字符。超过67个字符的内容（含签名）会被拆分成多条短信下发。
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.SMSMessage.delay_time">
+            <summary>
+            单位为秒，不能超过24小时。设置为0，表示立即发送短信。该参数仅对android平台有效，iOS 和 Winphone平台则会立即发送短信
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.Options.sendno">
+            <summary>
+            推送序号
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.Options.time_to_live">
+             <summary>
+            离线消息保留时长(秒)
+             </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.Options.override_msg_id">
+            <summary>
+            要覆盖的消息ID
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.Options.apns_production">
+            <summary>
+            APNs是否生产环境 True 表示推送生产环境，False 表示要推送开发环境；
+            </summary>
+        </member>
+        <member name="P:Shop.Push.Domain.Models.Options.big_push_duration">
+            <summary>
+            定速推送时长(分钟)
+            </summary>
+        </member>
+    </members>
+</doc>
