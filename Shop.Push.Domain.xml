@@ -4,7 +4,7 @@
         <name>Shop.Push.Domain</name>
     </assembly>
     <members>
-        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_All_All_Alert(System.String)">
+        <member name="M:Shop.Push.Domain.Models.JPushPayload.PushObject_All_All_Alert(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
             推送消息到所有平台
             </summary>
